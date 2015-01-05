@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.enable.SlashesInActionNames" value="false" />
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.configuration.xml.reload" value="true" />
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<constant name="struts.serve.static.browserCache" value="false" />
+	<constant name="struts.ui.theme" value="simple" />
+	<!--include file="example.xml"/
+
+		<package name="ajax" namespace="/" extends="json-default">
+			<action name="login*" method="{1}" class="com.asiainfo.ued.statement.action.LoginAction">
+				<result name="success" type="json">
+					<param name="contentType">text/json</param>
+					<param name="root">emp</param>
+				</result>
+			</action>
+		</package>
+
+		Add packages here -->
+	<package name="json" extends="json-default" namespace="/">
+		<action name="user"
+			class="com.txws.action.UserAction">
+			<!--<result name="successDel">
+				index.html
+			</result>
+			<result name="failLogin">
+				login.html
+			</result>
+			<result name="successGetUser">
+				/admin/user.html
+			</result>-->
+			<result type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="excludeNullProperties">true</param>
+				<param name="root">data</param>
+			</result>
+		</action>
+		<action name="menu"
+			class="com.txws.action.MenuAction">
+			<result type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="excludeNullProperties">true</param>
+				<param name="root">data</param>
+			</result>
+			<interceptor-ref name="fileUpload">
+				<param name="maximumSize">20480000</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</action>
+		<action name="appraise"
+			class="com.txws.action.AppraiseAction">
+			<result type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="excludeNullProperties">true</param>
+				<param name="root">dataMap</param>
+			</result>
+		</action>
+		<action name="address"
+			class="com.txws.action.AddressAction">
+			<result type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="excludeNullProperties">true</param>
+				<param name="root">data</param>
+			</result>
+		</action>
+		<action name="order"
+			class="com.txws.action.OrderAction">
+			<result type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="excludeNullProperties">true</param>
+				<param name="root">data</param>
+			</result>
+		</action>
+		<action name="activity"
+			class="com.txws.action.ActivityAction">
+			<result type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="excludeNullProperties">true</param>
+				<param name="root">data</param>
+			</result>
+		</action>
+		<action name="type"
+			class="com.txws.action.TypeAction">
+			<result type="json">
+				<!-- 这里指定将被Struts2序列化的属性，该属性在action中必须有对应的getter方法 -->
+				<param name="excludeNullProperties">true</param>
+				<param name="root">data</param>
+			</result>
+		</action>
+	</package>
+</struts>

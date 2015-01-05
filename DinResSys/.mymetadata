@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="DinResSys"
+  id="myeclipse.1420362012577"
+  context-root="/DinResSys"
+  j2ee-spec="5.0"
+  archive="DinResSys.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebContent" />
+  </attributes>
+</project-module>
+
